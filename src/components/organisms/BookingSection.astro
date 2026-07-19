@@ -1,0 +1,60 @@
+---
+import { eventTypes, site } from '@data/site.data';
+import { icons } from '@utils/icons';
+---
+
+<section class="section booking halftone" id="contacto">
+  <div class="container booking__grid">
+    <div class="booking__copy" data-reveal>
+      <p class="eyebrow">06 / Activa el spark</p>
+      <h2>¿Lista para hacer<br /><span>brillar tu evento?</span></h2>
+      <p>Completa lo esencial y abriremos WhatsApp con tu solicitud lista para enviar.</p>
+      <div class="booking__facts">
+        <div><span set:html={icons.map} /><p><strong>Cobertura</strong>{site.location}</p></div>
+        <div><span set:html={icons.calendar} /><p><strong>Reserva</strong>Sujeta a disponibilidad</p></div>
+      </div>
+    </div>
+    <form class="booking-form" data-booking-form data-whatsapp={site.whatsapp} data-reveal>
+      <div class="booking-form__header">
+        <span>Solicitud de cotización</span>
+        <strong>✦ 01</strong>
+      </div>
+      <div class="field-grid">
+        <label>
+          <span>Nombre *</span>
+          <input type="text" name="name" autocomplete="name" placeholder="¿Cómo te llamas?" required />
+        </label>
+        <label>
+          <span>WhatsApp *</span>
+          <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+51 999 999 999" required />
+        </label>
+      </div>
+      <div class="field-grid">
+        <label>
+          <span>Tipo de evento *</span>
+          <select name="event" required>
+            <option value="" selected disabled>Selecciona una opción</option>
+            {eventTypes.map((type) => <option value={type}>{type}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>Fecha estimada *</span>
+          <input type="date" name="date" required />
+        </label>
+      </div>
+      <label>
+        <span>Distrito o ubicación *</span>
+        <input type="text" name="location" autocomplete="address-level2" placeholder="Ej. Miraflores, Lima" required />
+      </label>
+      <label>
+        <span>Cuéntanos un poco más</span>
+        <textarea name="details" rows="4" placeholder="Cantidad de invitados, servicios que te interesan, temática..."></textarea>
+      </label>
+      <button class="form-submit" type="submit">
+        <span>Enviar por WhatsApp</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </button>
+      <p class="booking-form__privacy">Al enviar, WhatsApp abrirá el mensaje en una nueva pestaña. No almacenamos tus datos en esta web.</p>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import ActionLink from '@components/atoms/ActionLink.astro';
+import { stitchImages } from '@data/site.data';
+import { whatsappUrl } from '@utils/whatsapp';
+---
+
+<section class="hero halftone" id="inicio">
+  <div class="container hero__grid">
+    <div class="hero__copy" data-hero-copy>
+      <p class="eyebrow sticker sticker--lilac">✦ Beauty bar móvil en Lima</p>
+      <h1>Tu evento,<br />pero en modo<br /><em>estrella pop.</em></h1>
+      <p class="hero__lead">
+        Glitter, gemas, tattoos temporales y peinados express. Montamos una experiencia que tus invitados van a querer vivir, fotografiar y compartir.
+      </p>
+      <div class="hero__actions">
+        <ActionLink href={whatsappUrl()} external>Cotiza tu fecha</ActionLink>
+        <ActionLink href="#servicios" variant="secondary">Ver experiencias</ActionLink>
+      </div>
+      <ul class="hero__trust" aria-label="Características del servicio">
+        <li><span>01</span>Lima Metropolitana</li>
+        <li><span>02</span>Kids + adultos</li>
+        <li><span>03</span>Montaje móvil</li>
+      </ul>
+    </div>
+    <div class="hero__visual" data-hero-visual>
+      <div class="hero__frame">
+        <img
+          src={stitchImages.hero}
+          alt="Ilustración pop de MechitaSparks con artista de cabello rosado y brocha de maquillaje"
+          width="768"
+          height="768"
+          fetchpriority="high"
+        />
+      </div>
+      <span class="hero__sticker hero__sticker--one">GLOW<br />UP!</span>
+      <span class="hero__sticker hero__sticker--two">✦</span>
+      <span class="hero__caption">Una estación. Cientos de looks.</span>
+    </div>
+  </div>
+  <div class="hero__bottom" aria-hidden="true">SHINE LOUDER ✦ SHINE LOUDER ✦ SHINE LOUDER ✦</div>
+</section>
+
+<section class="manifesto" data-reveal>
+  <div class="container">
+    <p>No venimos a decorar tu fiesta.</p>
+    <h2>Venimos a convertirla en un <span>show.</span></h2>
+  </div>
+</section>

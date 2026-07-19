@@ -1,0 +1,10 @@
+{
+  "name": "MechitaSparks by Mercedes Astorima",
+  "short_name": "MechitaSparks",
+  "description": "Beauty bar móvil para eventos en Lima.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8f2",
+  "theme_color": "#ff3b9d",
+  "icons": []
+}

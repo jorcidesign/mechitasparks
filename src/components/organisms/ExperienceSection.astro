@@ -1,0 +1,112 @@
+---
+import ActionLink from '@components/atoms/ActionLink.astro';
+import { icons } from '@utils/icons';
+import { packs, steps, stitchImages } from '@data/site.data';
+import { whatsappUrl } from '@utils/whatsapp';
+---
+
+<section class="section process halftone" id="como-funciona">
+  <div class="container">
+    <header class="section-heading section-heading--split" data-reveal>
+      <div>
+        <p class="eyebrow">02 / Nuestro spark plan</p>
+        <h2>De tu idea al<br /><span>modo show.</span></h2>
+      </div>
+      <p>Cuatro pasos claros. Nosotros resolvemos la estación; tú disfrutas la fiesta.</p>
+    </header>
+    <ol class="process-list">
+      {steps.map((step) => (
+        <li data-reveal>
+          <div class="process-list__top">
+            <span class="process-list__number">{step.number}</span>
+            <span class="process-list__icon" set:html={icons[step.icon]} />
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="section gallery" id="experiencias">
+  <div class="container">
+    <header class="gallery__header" data-reveal>
+      <p class="eyebrow">03 / Caught on camera</p>
+      <h2>Looks que se vuelven<br /><span>el momento.</span></h2>
+    </header>
+    <div class="gallery__grid">
+      <figure class="polaroid polaroid--one" data-reveal>
+        <img src={stitchImages.galleryOne} alt="Look de invitada con glitter y gemas en el rostro" width="720" height="720" loading="lazy" decoding="async" />
+        <figcaption>FACE GEMS / 01</figcaption>
+      </figure>
+      <figure class="polaroid polaroid--two" data-reveal>
+        <img src={stitchImages.galleryTwo} alt="Invitadas disfrutando una estación de belleza para eventos" width="960" height="720" loading="lazy" decoding="async" />
+        <figcaption>GLOW GANG / 02</figcaption>
+      </figure>
+      <figure class="polaroid polaroid--three" data-reveal>
+        <img src={stitchImages.galleryThree} alt="Detalle de experiencia MechitaSparks en una celebración" width="960" height="720" loading="lazy" decoding="async" />
+        <figcaption>SPARK MODE / 03</figcaption>
+      </figure>
+      <div class="gallery__note" data-reveal>
+        <strong>Tu evento.</strong>
+        <span>Su personalidad.</span>
+        <em>Nuestro spark.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section packs halftone" id="packs">
+  <div class="container">
+    <header class="section-heading section-heading--split" data-reveal>
+      <div>
+        <p class="eyebrow">04 / Spark packs</p>
+        <h2>Una experiencia<br /><span>a tu medida.</span></h2>
+      </div>
+      <p>Cada evento tiene otro aforo, horario y energía. Elige un punto de partida y lo cotizamos para ti.</p>
+    </header>
+    <div class="pack-grid">
+      {packs.map((pack) => (
+        <article class:list={['pack-card', `pack-card--${pack.accent}`, { 'pack-card--featured': pack.featured }]} data-reveal>
+          {pack.featured && <p class="pack-card__badge">Más elegido</p>}
+          <p class="pack-card__eyebrow">{pack.eyebrow}</p>
+          <h3>{pack.name}</h3>
+          <p class="pack-card__description">{pack.description}</p>
+          <ul>
+            {pack.features.map((feature) => <li><span set:html={icons.check} />{feature}</li>)}
+          </ul>
+          <ActionLink
+            href={whatsappUrl(`Hola MechitaSparks, quiero cotizar el pack ${pack.name} para mi evento.`)}
+            external
+            variant={pack.featured ? 'dark' : 'secondary'}
+          >Cotizar pack</ActionLink>
+        </article>
+      ))}
+    </div>
+    <p class="packs__note">La cotización final depende de fecha, ubicación, duración, aforo y servicios seleccionados.</p>
+  </div>
+</section>
+
+<section class="section founder" id="mercedes">
+  <div class="container founder__grid">
+    <div class="founder__visual" data-reveal>
+      <div class="founder__image">
+        <img src="https://res.cloudinary.com/dhlkqt62w/image/upload/v1784481406/12c2d949-f4c1-48ee-b027-d253a7084ef5.png" alt="Mercedes Astorima, fundadora de MechitaSparks" width="875" height="1798" loading="lazy" decoding="async" />
+      </div>
+      <span class="sticker sticker--pink">BEHIND THE SPARK</span>
+    </div>
+    <div class="founder__copy" data-reveal>
+      <p class="eyebrow">05 / Mercedes Astorima</p>
+      <h2>Belleza con técnica.<br /><span>Eventos con actitud.</span></h2>
+      <p class="founder__lead">MechitaSparks nace de la mirada de Mercedes Astorima, maquilladora, peinadora profesional y educadora.</p>
+      <p>Su dirección combina precisión, ritmo de atención y una estética lista para cámara. El objetivo es que cada invitado se sienta parte del show sin perder la espontaneidad de la fiesta.</p>
+      <dl>
+        <div><dt>Enfoque</dt><dd>Beauty + experience</dd></div>
+        <div><dt>Base</dt><dd>Lima, Perú</dd></div>
+        <div><dt>Formato</dt><dd>100% móvil</dd></div>
+      </dl>
+      <ActionLink href="#contacto" variant="dark">Cuéntanos tu evento</ActionLink>
+    </div>
+  </div>
+</section>

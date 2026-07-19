@@ -1,0 +1,31 @@
+---
+import { navigation, site, stitchImages } from '@data/site.data';
+import { whatsappUrl } from '@utils/whatsapp';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__marquee" aria-hidden="true">GET YOUR GLOW ✦ GET YOUR GLOW ✦ GET YOUR GLOW ✦</div>
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <img src={stitchImages.logo} alt="MechitaSparks" width="280" height="92" loading="lazy" />
+      <p>{site.tagline}.</p>
+    </div>
+    <div>
+      <h2>Explora</h2>
+      <nav aria-label="Navegación del pie">
+        {navigation.slice(0, 5).map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </div>
+    <div>
+      <h2>Hablemos</h2>
+      <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <span>{site.location}</span>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <p>© {year} {site.legalName}</p>
+    <a href="#contenido">Volver arriba ↑</a>
+  </div>
+</footer>

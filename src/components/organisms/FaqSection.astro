@@ -1,0 +1,28 @@
+---
+import { faqs } from '@data/site.data';
+---
+
+<section class="section faq" id="preguntas">
+  <div class="container faq__grid">
+    <header class="faq__header" data-reveal>
+      <p class="eyebrow">07 / Preguntas frecuentes</p>
+      <h2>Antes de entrar en<br /><span>spark mode.</span></h2>
+      <p>Lo importante para planificar una estación cómoda, segura y a tiempo.</p>
+    </header>
+    <div class="faq__list" data-faq-list>
+      {faqs.map((faq, index) => (
+        <div class="faq-item" data-faq-item>
+          <h3>
+            <button type="button" aria-expanded="false" aria-controls={`faq-${index}`}>
+              <span><small>0{index + 1}</small>{faq.question}</span>
+              <i aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq-item__answer" id={`faq-${index}`} hidden>
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { navigation, site, stitchImages } from '@data/site.data';
+import { whatsappUrl } from '@utils/whatsapp';
+---
+
+<div class="spark-marquee" aria-hidden="true">
+  <div class="spark-marquee__track">
+    <span>GLITTER <b>✦</b> GEMAS <b>✦</b> TATUAJES <b>✦</b> SPARK MODE <b>✦</b></span>
+    <span>GLITTER <b>✦</b> GEMAS <b>✦</b> TATUAJES <b>✦</b> SPARK MODE <b>✦</b></span>
+    <span>GLITTER <b>✦</b> GEMAS <b>✦</b> TATUAJES <b>✦</b> SPARK MODE <b>✦</b></span>
+    <span>GLITTER <b>✦</b> GEMAS <b>✦</b> TATUAJES <b>✦</b> SPARK MODE <b>✦</b></span>
+  </div>
+</div>
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <p class="site-header__location">Beauty bar móvil <span>Lima, Perú</span></p>
+    <a class="site-header__logo" href="#contenido" aria-label="MechitaSparks, ir al inicio">
+      <img src={stitchImages.logo} alt={site.name} width="280" height="92" fetchpriority="high" />
+    </a>
+    <div class="site-header__actions">
+      <a class="header-cta" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Cotizar</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="site-drawer"
+        aria-expanded="false"
+        data-menu-toggle
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-backdrop" data-nav-backdrop></div>
+  <nav class="site-drawer" id="site-drawer" aria-label="Navegación principal" data-site-nav aria-hidden="true">
+    <div class="site-drawer__top">
+      <span class="sticker sticker--cyan">SPARK MODE ON</span>
+      <button class="drawer-close" type="button" aria-label="Cerrar menú" data-menu-close>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19" /></svg>
+      </button>
+    </div>
+    <div class="site-drawer__links">
+      {navigation.map((item, index) => (
+        <a href={item.href}><span>0{index + 1}</span>{item.label}</a>
+      ))}
+    </div>
+    <a class="site-drawer__cta" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Quiero mi beauty bar</a>
+  </nav>
+</header>
